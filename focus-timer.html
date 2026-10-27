@@ -1,50 +1,79 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
-@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
-:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--cardbg:linear-gradient(160deg,#fff3f8 0%,#f7f0ff 100%);--ink:#5b4a6b;--soft:#a08fb0;--rim:#ffffff;--drop:#ecd9f5;--pink:#ffc9dd;--pinkd:#f39ac0;--lav:#e3d4ff;--lavd:#b99cf0;--mint:#c9f0dc;--mintd:#86d3ad;--butter:#fff1b8;--butterd:#f2cf5b;--sky:#cfe8ff;--skyd:#8cc3f2;--track:#f3e6f2;--face:#4a3a58;--blush:#ff9fc0}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}}
+:root.dark{--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
-.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
-.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
-button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
-button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
-button.ghost{background:transparent;border:1.5px solid var(--line)}
-button.on{background:var(--pink)}
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:14px 14px 20px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--cardbg);border-radius:30px;border:3px solid var(--rim);box-shadow:0 7px 0 var(--drop),0 14px 30px rgba(185,156,240,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.card>*{position:relative;z-index:1}
+.dots{position:absolute!important;inset:0;z-index:0!important;background-image:radial-gradient(var(--track) 1.4px,transparent 1.6px);background-size:18px 18px;opacity:.7;pointer-events:none}
+.spark{position:absolute!important;z-index:0!important;pointer-events:none;animation:tw 2.6s ease-in-out infinite;font-size:12px}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.35}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.label{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:13px;letter-spacing:.08em;text-transform:lowercase;color:var(--soft);font-weight:600}
+.label::before{content:"♡ "}.label::after{content:" ♡"}
+h1,.h{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600}
+button{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;color:#4a3a58;background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;box-shadow:0 3px 0 var(--lavd);transition:transform .12s,box-shadow .12s}
+button:hover{transform:translateY(-1px)}button:active{transform:translateY(3px);box-shadow:0 0 0 var(--lavd)}
+button.pink{background:var(--pink);box-shadow:0 3px 0 var(--pinkd)}button.pink:active{box-shadow:none}
+button.ghost{background:var(--rim);color:var(--ink);box-shadow:0 3px 0 var(--track)}
+button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes squish{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 </style><title>Focus Timer · Soft Focus</title>
 <style>
-.ring{position:relative;width:min(56vw,170px);aspect-ratio:1}
-.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
-.ring circle{fill:none;stroke-width:10;stroke-linecap:round}
-.bgc{stroke:var(--line)}.fg{stroke:url(#g);transition:stroke-dashoffset .5s linear}
-.read{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.mm{font-size:clamp(28px,10vw,40px);font-weight:700}
-.st{font-size:12px;color:var(--soft);font-weight:700}
+.ring{position:relative;width:min(44vw,138px);aspect-ratio:1}
+.ring>svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:11;stroke-linecap:round}
+.bgc{stroke:var(--track)}.fg{stroke:url(#g);transition:stroke-dashoffset .5s linear}
+.mochi{position:absolute;inset:18%;}
+.mochi svg{width:100%;height:100%}
+.run .mochi{animation:squish 1.6s ease-in-out infinite}
+.mm{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:700;font-size:clamp(28px,9vw,36px);line-height:1;color:var(--pinkd);text-shadow:2px 2px 0 var(--lav)}
+.st{font-size:12px;color:var(--soft);font-weight:700;margin-top:-4px}
 .row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.row button{padding:6px 12px;font-size:13px}
+.row button{padding:5px 11px;font-size:13px}
+.heart{position:absolute;font-size:16px;animation:fly 1.4s ease-out forwards;pointer-events:none;z-index:5}
+@keyframes fly{to{transform:translate(var(--x),var(--y)) scale(1.3);opacity:0}}
 </style>
-</head><body><div class="card">
-  <div class="label">Focus bubble</div>
-  <div class="ring">
-    <svg viewBox="0 0 120 120"><defs><linearGradient id="g"><stop offset="0" stop-color="#c58fd6"/><stop offset="1" stop-color="#f2a6c5"/></linearGradient></defs>
+</head><body><div class="card" id="c">
+  <div class="ring" id="ring">
+    <svg viewBox="0 0 120 120"><defs><linearGradient id="g"><stop offset="0" stop-color="#b99cf0"/><stop offset="1" stop-color="#f39ac0"/></linearGradient></defs>
     <circle class="bgc" cx="60" cy="60" r="52"/><circle class="fg" id="arc" cx="60" cy="60" r="52"/></svg>
-    <div class="read"><div class="mm" id="mm">25:00</div><div class="st" id="st">ready when you are</div></div>
+    <div class="mochi"><svg viewBox="0 0 100 100" id="mo"></svg></div>
   </div>
+  <div class="mm" id="mm">25:00</div>
+  <div class="st" id="st">ready when you are</div>
   <div class="row" id="presets"></div>
-  <div class="row"><button id="go">▶ Start</button><button class="ghost" id="rs">↺ Reset</button></div>
+  <div class="row"><button class="pink" id="go">▶ start</button><button class="ghost" id="rs">↺ reset</button></div>
 </div>
-<script>
+<script>function face(m){m=m||"open";const F="#4a3a58";let e="";
+if(m=="happy")e=`<path d="M30 46 q6 -8 12 0 M58 46 q6 -8 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="closed")e=`<path d="M30 46 q6 5 12 0 M58 46 q6 5 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="sleepy")e=`<path d="M30 47 h12 M58 47 h12" stroke="${F}" stroke-width="4" stroke-linecap="round"/>`;
+else e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+let mo=m=="o"?`<ellipse cx="50" cy="60" rx="4" ry="5" fill="${F}"/>`:m=="sleepy"?`<path d="M45 60 q5 3 10 0" stroke="${F}" stroke-width="3.4" fill="none" stroke-linecap="round"/>`:`<path d="M43 57 q7 8 14 0" stroke="${F}" stroke-width="3.6" fill="#ff7aa8" stroke-linecap="round" stroke-linejoin="round"/>`;
+if(m=="o")e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+return e+`<ellipse cx="25" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/><ellipse cx="75" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/>`+mo}
+(function(){const c=document.querySelector(".card");if(!c)return;const d=document.createElement("div");d.className="dots";c.prepend(d);
+const S=["✦","✧","♡","✦","⋆"],C=["#f39ac0","#b99cf0","#8cc3f2","#f2cf5b","#86d3ad"];
+[[6,8],[88,10],[3,93],[95,93],[50,4],[80,50],[3,30]].forEach(([x,y],i)=>{const s=document.createElement("span");s.className="spark";s.textContent=S[i%5];s.style.cssText=`left:${x}%;top:${y}%;color:${C[i%5]};animation-delay:${i*.37}s;font-size:${10+(i%3)*4}px`;c.appendChild(s)});
+setInterval(()=>document.querySelectorAll(".eyes").forEach(g=>{g.style.transformOrigin="50px 45px";g.style.transition="transform .08s";g.style.transform="scaleY(.1)";setTimeout(()=>g.style.transform="",130)}),3800)})();
+</script><script>
+function mochi(m){document.getElementById("mo").innerHTML=`<ellipse cx="50" cy="92" rx="30" ry="5" fill="#000" opacity=".08"/><path d="M10 60 Q10 14 50 14 Q90 14 90 60 Q90 90 50 90 Q10 90 10 60Z" fill="#ffd6e6" stroke="#f39ac0" stroke-width="3"/><path d="M38 16 q6 -10 12 -4 q4 -8 10 0" stroke="#86d3ad" stroke-width="4" fill="none" stroke-linecap="round"/><g transform="translate(0 8)">${face(m)}</g>`}
 const C=2*Math.PI*52,arc=document.getElementById("arc");arc.style.strokeDasharray=C;
-const P=[[5,"🧺 5"],[15,"☕ 15"],[25,"⚡ 25"],[45,"🌊 45"]];let total=25*60,left=total,timer=null,end=0;
-const pre=document.getElementById("presets");
-P.forEach(([m,l])=>{const b=document.createElement("button");b.className="ghost";b.textContent=l;b.onclick=()=>{stop();total=left=m*60;draw();mark(b)};pre.appendChild(b);if(m==25)mark(b)});
+let total=25*60,left=total,timer=null,end=0;const pre=document.getElementById("presets");
+[[5,"5"],[15,"15"],[25,"25"],[45,"45"]].forEach(([m,l])=>{const b=document.createElement("button");b.className="ghost";b.textContent=l+" min";b.onclick=()=>{stop();total=left=m*60;draw();mark(b);mochi("open");st.textContent="ready when you are"};pre.appendChild(b);if(m==25)mark(b)});
 function mark(b){[...pre.children].forEach(x=>x.classList.remove("on"));b.classList.add("on")}
 function draw(){const m=Math.floor(left/60),s=left%60;document.getElementById("mm").textContent=m+":"+String(s).padStart(2,"0");arc.style.strokeDashoffset=C*(1-left/total)}
-function chime(){try{const a=new AudioContext();[523,659,784].forEach((f,i)=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=f;o.type="sine";g.gain.setValueAtTime(0,a.currentTime+i*.18);g.gain.linearRampToValueAtTime(.2,a.currentTime+i*.18+.02);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+i*.18+1.2);o.connect(g).connect(a.destination);o.start(a.currentTime+i*.18);o.stop(a.currentTime+i*.18+1.3)})}catch(e){}}
-function stop(){clearInterval(timer);timer=null;go.textContent="▶ Start"}
-const go=document.getElementById("go"),st=document.getElementById("st");
-go.onclick=()=>{if(timer){stop();st.textContent="paused — that's okay";return}
-end=Date.now()+left*1000;go.textContent="❚❚ Pause";st.textContent="you've got this";
-timer=setInterval(()=>{left=Math.max(0,Math.round((end-Date.now())/1000));draw();if(!left){stop();st.textContent="done! stretch & sip 🌸";chime()}},250)};
-document.getElementById("rs").onclick=()=>{stop();left=total;st.textContent="ready when you are";draw()};draw();
+function chime(){try{const a=new AudioContext();[659,784,1047].forEach((f,i)=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=f;g.gain.setValueAtTime(0,a.currentTime+i*.16);g.gain.linearRampToValueAtTime(.18,a.currentTime+i*.16+.02);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+i*.16+1);o.connect(g).connect(a.destination);o.start(a.currentTime+i*.16);o.stop(a.currentTime+i*.16+1.1)})}catch(e){}}
+function hearts(){const r=document.getElementById("ring");for(let i=0;i<10;i++){const h=document.createElement("span");h.className="heart";h.textContent=["💖","✨","🌸","💜"][i%4];h.style.left="45%";h.style.top="40%";h.style.setProperty("--x",(Math.random()*160-80)+"px");h.style.setProperty("--y",(Math.random()*-110-10)+"px");r.appendChild(h);setTimeout(()=>h.remove(),1500)}}
+const go=document.getElementById("go"),st=document.getElementById("st"),card=document.getElementById("c");
+function stop(){clearInterval(timer);timer=null;go.textContent="▶ start";card.classList.remove("run")}
+go.onclick=()=>{if(timer){stop();mochi("sleepy");st.textContent="little break — that's okay";return}
+end=Date.now()+left*1000;go.textContent="❚❚ pause";st.textContent="focusing together…";mochi("closed");card.classList.add("run");
+timer=setInterval(()=>{left=Math.max(0,Math.round((end-Date.now())/1000));draw();if(!left){stop();st.textContent="you did it! stretch & sip";mochi("happy");chime();hearts()}},250)};
+document.getElementById("rs").onclick=()=>{stop();left=total;st.textContent="ready when you are";mochi("open");draw()};
+mochi("open");draw();
 </script>
 </body></html>

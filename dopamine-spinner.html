@@ -1,38 +1,80 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
-@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
-:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--cardbg:linear-gradient(160deg,#fff3f8 0%,#f7f0ff 100%);--ink:#5b4a6b;--soft:#a08fb0;--rim:#ffffff;--drop:#ecd9f5;--pink:#ffc9dd;--pinkd:#f39ac0;--lav:#e3d4ff;--lavd:#b99cf0;--mint:#c9f0dc;--mintd:#86d3ad;--butter:#fff1b8;--butterd:#f2cf5b;--sky:#cfe8ff;--skyd:#8cc3f2;--track:#f3e6f2;--face:#4a3a58;--blush:#ff9fc0}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}}
+:root.dark{--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
-.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
-.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
-button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
-button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
-button.ghost{background:transparent;border:1.5px solid var(--line)}
-button.on{background:var(--pink)}
-</style><title>Dopamine Picker · Soft Focus</title>
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:14px 14px 20px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--cardbg);border-radius:30px;border:3px solid var(--rim);box-shadow:0 7px 0 var(--drop),0 14px 30px rgba(185,156,240,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.card>*{position:relative;z-index:1}
+.dots{position:absolute!important;inset:0;z-index:0!important;background-image:radial-gradient(var(--track) 1.4px,transparent 1.6px);background-size:18px 18px;opacity:.7;pointer-events:none}
+.spark{position:absolute!important;z-index:0!important;pointer-events:none;animation:tw 2.6s ease-in-out infinite;font-size:12px}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.35}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.label{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:13px;letter-spacing:.08em;text-transform:lowercase;color:var(--soft);font-weight:600}
+.label::before{content:"♡ "}.label::after{content:" ♡"}
+h1,.h{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600}
+button{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;color:#4a3a58;background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;box-shadow:0 3px 0 var(--lavd);transition:transform .12s,box-shadow .12s}
+button:hover{transform:translateY(-1px)}button:active{transform:translateY(3px);box-shadow:0 0 0 var(--lavd)}
+button.pink{background:var(--pink);box-shadow:0 3px 0 var(--pinkd)}button.pink:active{box-shadow:none}
+button.ghost{background:var(--rim);color:var(--ink);box-shadow:0 3px 0 var(--track)}
+button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes squish{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+</style><title>Dopamine Gacha · Soft Focus</title>
 <style>
-.pick{min-height:64px;display:flex;align-items:center;justify-content:center;font-size:clamp(18px,6vw,24px);font-weight:700;padding:10px 18px;border-radius:18px;background:var(--mint);width:100%;transition:background .2s}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
-.tabs button{padding:5px 11px;font-size:12px}
-.spin{background:var(--pink);font-size:15px;padding:10px 22px}
-.cat{font-size:12px;color:var(--soft);font-weight:700;min-height:16px}
+.wrap{display:flex;align-items:center;gap:14px;width:100%;justify-content:center}
+.mach{width:96px;flex:none}
+.shake{animation:sh .12s linear 6}@keyframes sh{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
+.knob{transform-origin:50px 112px;transition:transform .6s}
+.res{flex:1;max-width:230px;min-height:96px;background:var(--rim);border-radius:22px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 3px 0 var(--track)}
+.cap{font-size:22px}
+.pick{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;font-size:clamp(15px,4.6vw,19px);line-height:1.2}
+.cat{font-size:11px;color:var(--soft);font-weight:700}
+.popin{animation:pop .45s cubic-bezier(.3,1.6,.6,1)}
+.tabs{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.tabs button{padding:4px 10px;font-size:12px}
 </style>
 </head><body><div class="card">
-  <div class="label">Dopamine menu · pick for me</div>
+  <div class="label">dopamine gacha</div>
+  <div class="wrap">
+    <svg class="mach" id="m" viewBox="0 0 100 140">
+      <circle cx="50" cy="44" r="38" fill="#ffffff" fill-opacity=".85" stroke="#b99cf0" stroke-width="3"/>
+      <circle cx="34" cy="56" r="10" fill="#ffc9dd"/><circle cx="56" cy="62" r="10" fill="#cfe8ff"/><circle cx="66" cy="42" r="10" fill="#fff1b8"/><circle cx="42" cy="34" r="10" fill="#c9f0dc"/><circle cx="58" cy="24" r="8" fill="#e3d4ff"/><circle cx="26" cy="38" r="7" fill="#fff1b8"/>
+      <path d="M26 24 q8 -12 20 -12" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <rect x="14" y="78" width="72" height="56" rx="14" fill="#ffc9dd" stroke="#f39ac0" stroke-width="3"/>
+      <g transform="translate(25 70) scale(.5)">FACE</g>
+      <rect x="58" y="114" width="20" height="12" rx="5" fill="#f39ac0"/>
+      <g class="knob" id="k"><circle cx="30" cy="118" r="9" fill="#fff" stroke="#f39ac0" stroke-width="3"/><rect x="28" y="110" width="4" height="16" rx="2" fill="#f39ac0" transform="rotate(0 30 118)"/></g>
+    </svg>
+    <div class="res" id="res"><div class="cap" id="cap">🎀</div><div class="pick" id="p">stuck? spin for a treat!</div><div class="cat" id="cat"></div></div>
+  </div>
   <div class="tabs" id="tabs"></div>
-  <div class="pick" id="p">feeling stuck? spin ✨</div>
-  <div class="cat" id="cat"></div>
-  <button class="spin" id="go">🎲 Spin</button>
+  <button class="pink" id="go">✨ spin!</button>
 </div>
-<script>
-const M={"🥟 Quick":["Stretch to one song","Step outside for 2 min","Make a fancy drink","Text someone a meme","Dance it out","Splash cold water on your face","Pet an animal"],
-"🍝 Refuel":["Walk + podcast","Draw or doodle","Cook something new","Call a friend","Tidy one tiny corner","Play an instrument","Take a shower with music"],
-"🥗 Side":["Lo-fi playlist","Fidget toy","Body-doubling video","Light a candle","Change your seat","Snack + water nearby"],
-"🍰 Treat":["One episode (timer on!)","15 min of scrolling, timer set","Online window shopping","A cozy snack break"]};
-const colors=["--mint","--sky","--butter","--lav","--pink"];let cat="All";const tabs=document.getElementById("tabs");
-["All",...Object.keys(M)].forEach(k=>{const b=document.createElement("button");b.className="ghost"+(k=="All"?" on":"");b.textContent=k;b.onclick=()=>{cat=k;[...tabs.children].forEach(x=>x.classList.remove("on"));b.classList.add("on")};tabs.appendChild(b)});
-document.getElementById("go").onclick=()=>{const keys=cat=="All"?Object.keys(M):[cat];let n=0;const p=document.getElementById("p"),ct=document.getElementById("cat");
-const iv=setInterval(()=>{const k=keys[Math.floor(Math.random()*keys.length)],it=M[k][Math.floor(Math.random()*M[k].length)];p.textContent=it;ct.textContent=k;p.style.background="var("+colors[n%colors.length]+")";if(++n>14){clearInterval(iv);p.style.background="var(--mint)"}},70)};
+<script>function face(m){m=m||"open";const F="#4a3a58";let e="";
+if(m=="happy")e=`<path d="M30 46 q6 -8 12 0 M58 46 q6 -8 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="closed")e=`<path d="M30 46 q6 5 12 0 M58 46 q6 5 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="sleepy")e=`<path d="M30 47 h12 M58 47 h12" stroke="${F}" stroke-width="4" stroke-linecap="round"/>`;
+else e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+let mo=m=="o"?`<ellipse cx="50" cy="60" rx="4" ry="5" fill="${F}"/>`:m=="sleepy"?`<path d="M45 60 q5 3 10 0" stroke="${F}" stroke-width="3.4" fill="none" stroke-linecap="round"/>`:`<path d="M43 57 q7 8 14 0" stroke="${F}" stroke-width="3.6" fill="#ff7aa8" stroke-linecap="round" stroke-linejoin="round"/>`;
+if(m=="o")e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+return e+`<ellipse cx="25" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/><ellipse cx="75" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/>`+mo}
+(function(){const c=document.querySelector(".card");if(!c)return;const d=document.createElement("div");d.className="dots";c.prepend(d);
+const S=["✦","✧","♡","✦","⋆"],C=["#f39ac0","#b99cf0","#8cc3f2","#f2cf5b","#86d3ad"];
+[[6,8],[88,10],[3,93],[95,93],[50,4],[80,50],[3,30]].forEach(([x,y],i)=>{const s=document.createElement("span");s.className="spark";s.textContent=S[i%5];s.style.cssText=`left:${x}%;top:${y}%;color:${C[i%5]};animation-delay:${i*.37}s;font-size:${10+(i%3)*4}px`;c.appendChild(s)});
+setInterval(()=>document.querySelectorAll(".eyes").forEach(g=>{g.style.transformOrigin="50px 45px";g.style.transition="transform .08s";g.style.transform="scaleY(.1)";setTimeout(()=>g.style.transform="",130)}),3800)})();
+</script><script>
+document.getElementById("m").innerHTML=document.getElementById("m").innerHTML.replace("FACE",face("happy"));
+const M={"quick":["stretch to one song","step outside for 2 min","make a fancy drink","text a friend a meme","dance it out","splash cold water on your face","pet an animal"],
+"refuel":["walk + podcast","doodle something","cook something new","call a friend","tidy one tiny corner","play an instrument","shower with music"],
+"side":["lo-fi playlist on","grab a fidget toy","body-doubling video","light a candle","switch your seat","snack + water nearby"],
+"treat":["one episode (timer on!)","15 min scroll, timer set","window shop online","cozy snack break"]};
+const caps=["💗","💜","💙","💛","💚"];let cat="all";const tabs=document.getElementById("tabs");
+["all",...Object.keys(M)].forEach(k=>{const b=document.createElement("button");b.className="ghost"+(k=="all"?" on":"");b.textContent=k;b.onclick=()=>{cat=k;[...tabs.children].forEach(x=>x.classList.remove("on"));b.classList.add("on")};tabs.appendChild(b)});
+let rot=0;document.getElementById("go").onclick=()=>{const m=document.getElementById("m"),k=document.getElementById("k"),res=document.getElementById("res");
+m.classList.remove("shake");void m.offsetWidth;m.classList.add("shake");rot+=360;k.style.transform=`rotate(${rot}deg)`;
+setTimeout(()=>{const keys=cat=="all"?Object.keys(M):[cat],kk=keys[Math.floor(Math.random()*keys.length)];
+document.getElementById("p").textContent=M[kk][Math.floor(Math.random()*M[kk].length)];document.getElementById("cat").textContent="♡ "+kk+" ♡";
+document.getElementById("cap").textContent=caps[Math.floor(Math.random()*caps.length)];res.classList.remove("popin");void res.offsetWidth;res.classList.add("popin")},700)};
 </script>
 </body></html>

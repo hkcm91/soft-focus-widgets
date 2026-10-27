@@ -1,31 +1,61 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
-@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
-:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--cardbg:linear-gradient(160deg,#fff3f8 0%,#f7f0ff 100%);--ink:#5b4a6b;--soft:#a08fb0;--rim:#ffffff;--drop:#ecd9f5;--pink:#ffc9dd;--pinkd:#f39ac0;--lav:#e3d4ff;--lavd:#b99cf0;--mint:#c9f0dc;--mintd:#86d3ad;--butter:#fff1b8;--butterd:#f2cf5b;--sky:#cfe8ff;--skyd:#8cc3f2;--track:#f3e6f2;--face:#4a3a58;--blush:#ff9fc0}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}}
+:root.dark{--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
-.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
-.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
-button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
-button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
-button.ghost{background:transparent;border:1.5px solid var(--line)}
-button.on{background:var(--pink)}
-</style><title>Water · Soft Focus</title>
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:14px 14px 20px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--cardbg);border-radius:30px;border:3px solid var(--rim);box-shadow:0 7px 0 var(--drop),0 14px 30px rgba(185,156,240,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.card>*{position:relative;z-index:1}
+.dots{position:absolute!important;inset:0;z-index:0!important;background-image:radial-gradient(var(--track) 1.4px,transparent 1.6px);background-size:18px 18px;opacity:.7;pointer-events:none}
+.spark{position:absolute!important;z-index:0!important;pointer-events:none;animation:tw 2.6s ease-in-out infinite;font-size:12px}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.35}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.label{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:13px;letter-spacing:.08em;text-transform:lowercase;color:var(--soft);font-weight:600}
+.label::before{content:"♡ "}.label::after{content:" ♡"}
+h1,.h{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600}
+button{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;color:#4a3a58;background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;box-shadow:0 3px 0 var(--lavd);transition:transform .12s,box-shadow .12s}
+button:hover{transform:translateY(-1px)}button:active{transform:translateY(3px);box-shadow:0 0 0 var(--lavd)}
+button.pink{background:var(--pink);box-shadow:0 3px 0 var(--pinkd)}button.pink:active{box-shadow:none}
+button.ghost{background:var(--rim);color:var(--ink);box-shadow:0 3px 0 var(--track)}
+button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes squish{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+</style><title>Sip Tracker · Soft Focus</title>
 <style>
-.cups{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.cup{font-size:26px;width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:transparent;padding:0;display:flex;align-items:center;justify-content:center;filter:grayscale(1) opacity(.45)}
-.cup.full{background:var(--sky);filter:none}
-.msg{font-size:13px;font-weight:700;color:var(--soft);min-height:18px}
+.cups{display:grid;grid-template-columns:repeat(4,1fr);gap:6px 10px}
+.cup{width:52px;height:58px;padding:0;background:none;box-shadow:none;border-radius:0}
+.cup:active{box-shadow:none}
+.cup svg{width:100%;height:100%;overflow:visible}
+.cup.boing svg{animation:pop .4s cubic-bezier(.3,1.6,.6,1)}
+.all .cup svg{animation:bob 1s ease-in-out infinite}
+.msg{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:15px;font-weight:600;min-height:20px}
+.count{font-size:12px;color:var(--soft);font-weight:700}
 </style>
-</head><body><div class="card">
-  <div class="label">Sip tracker</div>
+</head><body><div class="card" id="card">
+  <div class="label">sip sip hooray</div>
   <div class="cups" id="cups"></div>
   <div class="msg" id="m"></div>
+  <div class="count" id="cnt"></div>
 </div>
-<script>
+<script>function face(m){m=m||"open";const F="#4a3a58";let e="";
+if(m=="happy")e=`<path d="M30 46 q6 -8 12 0 M58 46 q6 -8 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="closed")e=`<path d="M30 46 q6 5 12 0 M58 46 q6 5 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="sleepy")e=`<path d="M30 47 h12 M58 47 h12" stroke="${F}" stroke-width="4" stroke-linecap="round"/>`;
+else e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+let mo=m=="o"?`<ellipse cx="50" cy="60" rx="4" ry="5" fill="${F}"/>`:m=="sleepy"?`<path d="M45 60 q5 3 10 0" stroke="${F}" stroke-width="3.4" fill="none" stroke-linecap="round"/>`:`<path d="M43 57 q7 8 14 0" stroke="${F}" stroke-width="3.6" fill="#ff7aa8" stroke-linecap="round" stroke-linejoin="round"/>`;
+if(m=="o")e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+return e+`<ellipse cx="25" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/><ellipse cx="75" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/>`+mo}
+(function(){const c=document.querySelector(".card");if(!c)return;const d=document.createElement("div");d.className="dots";c.prepend(d);
+const S=["✦","✧","♡","✦","⋆"],C=["#f39ac0","#b99cf0","#8cc3f2","#f2cf5b","#86d3ad"];
+[[6,8],[88,10],[3,93],[95,93],[50,4],[80,50],[3,30]].forEach(([x,y],i)=>{const s=document.createElement("span");s.className="spark";s.textContent=S[i%5];s.style.cssText=`left:${x}%;top:${y}%;color:${C[i%5]};animation-delay:${i*.37}s;font-size:${10+(i%3)*4}px`;c.appendChild(s)});
+setInterval(()=>document.querySelectorAll(".eyes").forEach(g=>{g.style.transformOrigin="50px 45px";g.style.transition="transform .08s";g.style.transform="scaleY(.1)";setTimeout(()=>g.style.transform="",130)}),3800)})();
+</script><script>
 const key="sf-water-"+new Date().toDateString();let n=0;try{n=+localStorage.getItem(key)||0}catch(e){}
-const msgs=["tap a glass when you sip 💧","nice start!","keep it flowing 🌊","3 down 💙","halfway there!","you're glowing ✨","almost there!","one more 💙","8/8 — hydrated hero 🌸"];
-function draw(){const c=document.getElementById("cups");c.innerHTML="";for(let i=0;i<8;i++){const b=document.createElement("button");b.className="cup"+(i<n?" full":"");b.textContent="🥛";b.onclick=()=>{n=(i+1==n)?i:i+1;try{localStorage.setItem(key,n)}catch(e){}draw()};c.appendChild(b)}document.getElementById("m").textContent=msgs[n]}
+const msgs=["tap a cup when you sip 💧","yay, first sip!","keep it flowing 🌊","3 down, look at you","halfway there!","you're glowing ✨","almost there!","one more 💙","fully hydrated hero! 🌸"];
+function cup(full,i){const w=full?`<path d="M14 40 q8 -5 16 0 t16 0 t16 0 L58 86 Q57 94 50 94 L30 94 Q23 94 22 86Z" fill="#a9d6ff"/><circle cx="26" cy="70" r="3" fill="#fff" opacity=".8"/><circle cx="52" cy="58" r="2" fill="#fff" opacity=".8"/>`:"";
+return `<svg viewBox="0 0 80 100"><path d="M10 22 L70 22 L60 88 Q59 96 50 96 L30 96 Q21 96 20 88Z" fill="${full?'#e8f4ff':'#fbf7fd'}" stroke="${full?'#8cc3f2':'#d9cbe3'}" stroke-width="3.5" stroke-linejoin="round"/>${w}<rect x="46" y="4" width="5" height="34" rx="2.5" fill="${full?'#f39ac0':'#e7dcef'}" transform="rotate(14 48 20)"/><g transform="translate(15 34) scale(.5)">${face(full?"happy":"sleepy")}</g></svg>`}
+function draw(bi){const c=document.getElementById("cups");c.innerHTML="";for(let i=0;i<8;i++){const b=document.createElement("button");b.className="cup"+(i===bi?" boing":"");b.innerHTML=cup(i<n,i);b.title="cup "+(i+1);b.onclick=()=>{n=(i+1==n)?i:i+1;try{localStorage.setItem(key,n)}catch(e){}draw(i)};c.appendChild(b)}
+document.getElementById("m").textContent=msgs[n];document.getElementById("cnt").textContent=n+" / 8 cups";document.getElementById("card").classList.toggle("all",n==8)}
 draw();
 </script>
 </body></html>

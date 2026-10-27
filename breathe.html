@@ -1,34 +1,57 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
-@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
-:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--cardbg:linear-gradient(160deg,#fff3f8 0%,#f7f0ff 100%);--ink:#5b4a6b;--soft:#a08fb0;--rim:#ffffff;--drop:#ecd9f5;--pink:#ffc9dd;--pinkd:#f39ac0;--lav:#e3d4ff;--lavd:#b99cf0;--mint:#c9f0dc;--mintd:#86d3ad;--butter:#fff1b8;--butterd:#f2cf5b;--sky:#cfe8ff;--skyd:#8cc3f2;--track:#f3e6f2;--face:#4a3a58;--blush:#ff9fc0}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}}
+:root.dark{--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
-.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
-.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
-button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
-button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
-button.ghost{background:transparent;border:1.5px solid var(--line)}
-button.on{background:var(--pink)}
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:14px 14px 20px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--cardbg);border-radius:30px;border:3px solid var(--rim);box-shadow:0 7px 0 var(--drop),0 14px 30px rgba(185,156,240,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.card>*{position:relative;z-index:1}
+.dots{position:absolute!important;inset:0;z-index:0!important;background-image:radial-gradient(var(--track) 1.4px,transparent 1.6px);background-size:18px 18px;opacity:.7;pointer-events:none}
+.spark{position:absolute!important;z-index:0!important;pointer-events:none;animation:tw 2.6s ease-in-out infinite;font-size:12px}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.35}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.label{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:13px;letter-spacing:.08em;text-transform:lowercase;color:var(--soft);font-weight:600}
+.label::before{content:"♡ "}.label::after{content:" ♡"}
+h1,.h{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600}
+button{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;color:#4a3a58;background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;box-shadow:0 3px 0 var(--lavd);transition:transform .12s,box-shadow .12s}
+button:hover{transform:translateY(-1px)}button:active{transform:translateY(3px);box-shadow:0 0 0 var(--lavd)}
+button.pink{background:var(--pink);box-shadow:0 3px 0 var(--pinkd)}button.pink:active{box-shadow:none}
+button.ghost{background:var(--rim);color:var(--ink);box-shadow:0 3px 0 var(--track)}
+button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes squish{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 </style><title>Breathe · Soft Focus</title>
 <style>
-.stage{position:relative;width:min(60vw,180px);aspect-ratio:1;display:flex;align-items:center;justify-content:center}
-.blob{position:absolute;width:45%;height:45%;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,var(--pink) 35%,var(--lav) 100%);box-shadow:0 0 40px var(--lav);transition:transform 4s ease-in-out}
-.halo{position:absolute;inset:0;border-radius:50%;border:2px dashed var(--line)}
-.cue{position:relative;font-weight:700;font-size:16px;z-index:1}
-.sub{font-size:12px;color:var(--soft);font-weight:600}
+.stage{position:relative;width:min(56vw,170px);aspect-ratio:1;display:flex;align-items:center;justify-content:center}
+.halo{position:absolute;inset:0;border-radius:50%;border:3px dashed var(--track)}
+.blob{width:52%;height:52%;transition:transform 4s ease-in-out;filter:drop-shadow(0 6px 10px rgba(134,195,242,.35))}
+.cue{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;font-size:18px;color:var(--ink);min-height:22px}
+.sub{font-size:12px;color:var(--soft);font-weight:700}
 </style>
 </head><body><div class="card">
-  <div class="label">Breathing bubble</div>
-  <div class="stage"><div class="halo"></div><div class="blob" id="b"></div><div class="cue" id="c">tap start</div></div>
+  <div class="stage"><div class="halo"></div><svg class="blob" id="b" viewBox="0 0 100 100"></svg></div>
+  <div class="cue" id="c">tap start & breathe with me</div>
   <div class="sub" id="s">box breathing · 4 · 4 · 4 · 4</div>
-  <button id="go">Start</button>
+  <button class="pink" id="go">start</button>
 </div>
-<script>
-const steps=[["breathe in",2.1,4],["hold",2.1,4],["breathe out",1,4],["hold",1,4]];
+<script>function face(m){m=m||"open";const F="#4a3a58";let e="";
+if(m=="happy")e=`<path d="M30 46 q6 -8 12 0 M58 46 q6 -8 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="closed")e=`<path d="M30 46 q6 5 12 0 M58 46 q6 5 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="sleepy")e=`<path d="M30 47 h12 M58 47 h12" stroke="${F}" stroke-width="4" stroke-linecap="round"/>`;
+else e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+let mo=m=="o"?`<ellipse cx="50" cy="60" rx="4" ry="5" fill="${F}"/>`:m=="sleepy"?`<path d="M45 60 q5 3 10 0" stroke="${F}" stroke-width="3.4" fill="none" stroke-linecap="round"/>`:`<path d="M43 57 q7 8 14 0" stroke="${F}" stroke-width="3.6" fill="#ff7aa8" stroke-linecap="round" stroke-linejoin="round"/>`;
+if(m=="o")e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+return e+`<ellipse cx="25" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/><ellipse cx="75" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/>`+mo}
+(function(){const c=document.querySelector(".card");if(!c)return;const d=document.createElement("div");d.className="dots";c.prepend(d);
+const S=["✦","✧","♡","✦","⋆"],C=["#f39ac0","#b99cf0","#8cc3f2","#f2cf5b","#86d3ad"];
+[[6,8],[88,10],[3,93],[95,93],[50,4],[80,50],[3,30]].forEach(([x,y],i)=>{const s=document.createElement("span");s.className="spark";s.textContent=S[i%5];s.style.cssText=`left:${x}%;top:${y}%;color:${C[i%5]};animation-delay:${i*.37}s;font-size:${10+(i%3)*4}px`;c.appendChild(s)});
+setInterval(()=>document.querySelectorAll(".eyes").forEach(g=>{g.style.transformOrigin="50px 45px";g.style.transition="transform .08s";g.style.transform="scaleY(.1)";setTimeout(()=>g.style.transform="",130)}),3800)})();
+</script><script>
+function blob(m){document.getElementById("b").innerHTML=`<defs><radialGradient id="r" cx=".35" cy=".3"><stop offset="0" stop-color="#ffffff"/><stop offset=".45" stop-color="#cfe8ff"/><stop offset="1" stop-color="#c9f0dc"/></radialGradient></defs><path d="M50 8 C76 8 94 26 92 52 C90 78 74 94 50 92 C24 90 8 76 8 50 C8 24 26 8 50 8Z" fill="url(#r)" stroke="#8cc3f2" stroke-width="3"/><g transform="translate(0 4)">${face(m)}</g>`}
+const steps=[["breathe in…",1.9,4,"o"],["hold",1.9,4,"closed"],["and out…",1,4,"happy"],["rest",1,4,"closed"]];
 let i=0,t=null,cycles=0;const b=document.getElementById("b"),c=document.getElementById("c"),go=document.getElementById("go"),s=document.getElementById("s");
-function step(){const [w,sc,d]=steps[i];c.textContent=w;b.style.transitionDuration=d+"s";b.style.transform="scale("+sc+")";
-if(i==3){cycles++;s.textContent=cycles+" round"+(cycles>1?"s":"")+" · nice and slow"}i=(i+1)%4;t=setTimeout(step,d*1000)}
-go.onclick=()=>{if(t){clearTimeout(t);t=null;go.textContent="Start";c.textContent="paused";b.style.transform="scale(1)";return}go.textContent="Stop";i=0;step()};
+function step(){const [w,sc,d,m]=steps[i];c.textContent=w;blob(m);b.style.transitionDuration=d+"s";b.style.transform="scale("+sc+")";
+if(i==3){cycles++;s.textContent=cycles+" round"+(cycles>1?"s":"")+" · you're doing so well"}i=(i+1)%4;t=setTimeout(step,d*1000)}
+go.onclick=()=>{if(t){clearTimeout(t);t=null;go.textContent="start";c.textContent="paused";blob("open");b.style.transform="scale(1)";return}go.textContent="stop";i=0;step()};blob("open");
 </script>
 </body></html>

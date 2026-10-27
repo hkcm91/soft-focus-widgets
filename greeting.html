@@ -1,37 +1,68 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
-@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
-:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--cardbg:linear-gradient(160deg,#fff3f8 0%,#f7f0ff 100%);--ink:#5b4a6b;--soft:#a08fb0;--rim:#ffffff;--drop:#ecd9f5;--pink:#ffc9dd;--pinkd:#f39ac0;--lav:#e3d4ff;--lavd:#b99cf0;--mint:#c9f0dc;--mintd:#86d3ad;--butter:#fff1b8;--butterd:#f2cf5b;--sky:#cfe8ff;--skyd:#8cc3f2;--track:#f3e6f2;--face:#4a3a58;--blush:#ff9fc0}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}}
+:root.dark{--bg:#191919;--cardbg:linear-gradient(160deg,#2a2230 0%,#221f2e 100%);--ink:#f6ecfa;--soft:#c3b2cf;--rim:#3b3145;--drop:#120f16;--track:#3a3142}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
-body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
-.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
-.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
-button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
-button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
-button.ghost{background:transparent;border:1.5px solid var(--line)}
-button.on{background:var(--pink)}
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:14px 14px 20px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--cardbg);border-radius:30px;border:3px solid var(--rim);box-shadow:0 7px 0 var(--drop),0 14px 30px rgba(185,156,240,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;padding:16px;text-align:center;position:relative;overflow:hidden}
+.card>*{position:relative;z-index:1}
+.dots{position:absolute!important;inset:0;z-index:0!important;background-image:radial-gradient(var(--track) 1.4px,transparent 1.6px);background-size:18px 18px;opacity:.7;pointer-events:none}
+.spark{position:absolute!important;z-index:0!important;pointer-events:none;animation:tw 2.6s ease-in-out infinite;font-size:12px}
+@keyframes tw{0%,100%{transform:scale(.6) rotate(0);opacity:.35}50%{transform:scale(1.15) rotate(20deg);opacity:1}}
+.label{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:13px;letter-spacing:.08em;text-transform:lowercase;color:var(--soft);font-weight:600}
+.label::before{content:"♡ "}.label::after{content:" ♡"}
+h1,.h{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600}
+button{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;color:#4a3a58;background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;box-shadow:0 3px 0 var(--lavd);transition:transform .12s,box-shadow .12s}
+button:hover{transform:translateY(-1px)}button:active{transform:translateY(3px);box-shadow:0 0 0 var(--lavd)}
+button.pink{background:var(--pink);box-shadow:0 3px 0 var(--pinkd)}button.pink:active{box-shadow:none}
+button.ghost{background:var(--rim);color:var(--ink);box-shadow:0 3px 0 var(--track)}
+button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes squish{0%,100%{transform:scale(1,1)}50%{transform:scale(1.06,.94)}}
+@keyframes pop{0%{transform:scale(.3);opacity:0}70%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
 </style><title>Today · Soft Focus</title>
 <style>
-.big{font-size:clamp(22px,7vw,34px);font-weight:700;line-height:1.15}
-.date{font-size:15px;color:var(--soft);font-weight:600}
-.time{font-size:clamp(34px,12vw,56px);font-weight:700;letter-spacing:-.02em;background:linear-gradient(90deg,var(--accent),#e79bbd);-webkit-background-clip:text;background-clip:text;color:transparent}
-.note{font-size:13px;color:var(--soft);background:var(--butter);color:var(--ink);padding:6px 14px;border-radius:999px}
+.top{display:flex;align-items:center;gap:12px;width:100%;justify-content:center}
+.buddy{width:92px;height:92px;flex:none;animation:bob 3s ease-in-out infinite}
+.rays{transform-origin:50px 50px;animation:spin 18s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.bubble{background:var(--rim);border-radius:20px;padding:10px 14px;position:relative;text-align:left;box-shadow:0 3px 0 var(--track);max-width:220px}
+.bubble::before{content:"";position:absolute;left:-8px;top:50%;margin-top:-8px;border:8px solid transparent;border-right-color:var(--rim);border-left:0}
+.hi{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:600;font-size:clamp(17px,5.4vw,22px);line-height:1.15}
+.note{font-size:13px;color:var(--soft);font-weight:600;margin-top:3px}
+.time{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-weight:700;font-size:clamp(38px,13vw,56px);line-height:1;color:var(--pinkd);text-shadow:3px 3px 0 var(--lav)}
+.date{font-family:'Fredoka','Quicksand',ui-rounded,sans-serif;font-size:15px;font-weight:500;color:var(--soft);background:var(--rim);padding:4px 14px;border-radius:999px}
 </style>
 </head><body><div class="card">
-  <div class="big" id="hi">Hello</div>
+  <div class="top"><svg class="buddy" id="b" viewBox="0 0 100 100"></svg><div class="bubble"><div class="hi" id="hi">hello!</div><div class="note" id="n"></div></div></div>
   <div class="time" id="t">--:--</div>
   <div class="date" id="d"></div>
-  <div class="note" id="n"></div>
 </div>
-<script>
-const notes=["Just the next tiny thing 🌸","Water first, then the world 💧","Done is better than perfect ✨","Rest is productive too ☁️","You're not behind 💛","One step counts 🌱","Be gentle with you today 🫧"];
-function tick(){const n=new Date(),h=n.getHours();
-const g=h<5?"Hey, night owl 🌙":h<12?"Good morning ☀️":h<17?"Good afternoon 🌤":h<21?"Good evening 🌷":"Wind down time 🌙";
+<script>function face(m){m=m||"open";const F="#4a3a58";let e="";
+if(m=="happy")e=`<path d="M30 46 q6 -8 12 0 M58 46 q6 -8 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="closed")e=`<path d="M30 46 q6 5 12 0 M58 46 q6 5 12 0" stroke="${F}" stroke-width="4" fill="none" stroke-linecap="round"/>`;
+else if(m=="sleepy")e=`<path d="M30 47 h12 M58 47 h12" stroke="${F}" stroke-width="4" stroke-linecap="round"/>`;
+else e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+let mo=m=="o"?`<ellipse cx="50" cy="60" rx="4" ry="5" fill="${F}"/>`:m=="sleepy"?`<path d="M45 60 q5 3 10 0" stroke="${F}" stroke-width="3.4" fill="none" stroke-linecap="round"/>`:`<path d="M43 57 q7 8 14 0" stroke="${F}" stroke-width="3.6" fill="#ff7aa8" stroke-linecap="round" stroke-linejoin="round"/>`;
+if(m=="o")e=`<g class="eyes"><ellipse cx="36" cy="45" rx="4.6" ry="6" fill="${F}"/><ellipse cx="64" cy="45" rx="4.6" ry="6" fill="${F}"/><circle cx="37.6" cy="42.6" r="1.7" fill="#fff"/><circle cx="65.6" cy="42.6" r="1.7" fill="#fff"/></g>`;
+return e+`<ellipse cx="25" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/><ellipse cx="75" cy="56" rx="7" ry="4.2" fill="#ff9fc0" opacity=".75"/>`+mo}
+(function(){const c=document.querySelector(".card");if(!c)return;const d=document.createElement("div");d.className="dots";c.prepend(d);
+const S=["✦","✧","♡","✦","⋆"],C=["#f39ac0","#b99cf0","#8cc3f2","#f2cf5b","#86d3ad"];
+[[6,8],[88,10],[3,93],[95,93],[50,4],[80,50],[3,30]].forEach(([x,y],i)=>{const s=document.createElement("span");s.className="spark";s.textContent=S[i%5];s.style.cssText=`left:${x}%;top:${y}%;color:${C[i%5]};animation-delay:${i*.37}s;font-size:${10+(i%3)*4}px`;c.appendChild(s)});
+setInterval(()=>document.querySelectorAll(".eyes").forEach(g=>{g.style.transformOrigin="50px 45px";g.style.transition="transform .08s";g.style.transform="scaleY(.1)";setTimeout(()=>g.style.transform="",130)}),3800)})();
+</script><script>
+const notes=["just the next tiny thing 🌸","water first, then the world 💧","done is better than perfect ✨","rest is productive too ☁️","you're not behind 💛","one step counts 🌱","be gentle with you today 🫧"];
+let mode="";
+function draw(day){const b=document.getElementById("b");
+if(day){let r="";for(let i=0;i<12;i++){r+=`<rect x="47" y="2" width="6" height="13" rx="3" fill="#f2cf5b" transform="rotate(${i*30} 50 50)"/>`}
+b.innerHTML=`<g class="rays">${r}</g><circle cx="50" cy="50" r="33" fill="#fff1b8" stroke="#f2cf5b" stroke-width="3"/><g transform="translate(17 15) scale(.66)">${face("open")}</g>`}
+else{b.innerHTML=`<circle cx="50" cy="52" r="34" fill="#e3d4ff" stroke="#b99cf0" stroke-width="3"/><circle cx="36" cy="40" r="5" fill="#d2c0fb"/><circle cx="66" cy="70" r="4" fill="#d2c0fb"/><path d="M28 30 L50 4 L72 30 Z" fill="#cfe8ff" stroke="#8cc3f2" stroke-width="3" stroke-linejoin="round"/><circle cx="50" cy="5" r="5" fill="#fff"/><g transform="translate(17 19) scale(.66)">${face("sleepy")}</g><text x="82" y="26" font-family="Fredoka" font-size="14" fill="#b99cf0">z</text><text x="90" y="14" font-family="Fredoka" font-size="10" fill="#b99cf0">z</text>`}}
+function tick(){const n=new Date(),h=n.getHours(),day=h>=6&&h<20;if(mode!==day){mode=day;draw(day)}
+const g=h<5?"hey, night owl":h<12?"good morning":h<17?"good afternoon":h<21?"good evening":"cozy time";
 const name=new URLSearchParams(location.search).get("name");
-document.getElementById("hi").textContent=name?g.replace(/ (\S+)$/,", "+name+" $1"):g;
+document.getElementById("hi").textContent=g+(name?", "+name:"")+"!";
 document.getElementById("t").textContent=n.toLocaleTimeString([], {hour:"numeric",minute:"2-digit"});
-document.getElementById("d").textContent=n.toLocaleDateString([], {weekday:"long",month:"long",day:"numeric"});
-const day=Math.floor(n/864e5);document.getElementById("n").textContent=notes[day%notes.length];}
+document.getElementById("d").textContent=n.toLocaleDateString([], {weekday:"long",month:"short",day:"numeric"});
+document.getElementById("n").textContent=notes[Math.floor(n/864e5)%notes.length];}
 tick();setInterval(tick,1000);
 </script>
 </body></html>
