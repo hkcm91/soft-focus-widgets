@@ -23,7 +23,7 @@ button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
 </style><title>Dopamine Gacha · Soft Focus</title>
 <style>
 .wrap{display:flex;align-items:center;gap:14px;width:100%;justify-content:center}
-.mach{width:96px;flex:none}
+.mach{width:min(96px,28vw);flex:none}
 .shake{animation:sh .12s linear 6}@keyframes sh{0%,100%{transform:rotate(0)}25%{transform:rotate(-4deg)}75%{transform:rotate(4deg)}}
 .knob{transform-origin:50px 112px;transition:transform .6s}
 .res{flex:1;max-width:230px;min-height:96px;background:var(--rim);border-radius:22px;padding:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;box-shadow:0 3px 0 var(--track)}
@@ -32,7 +32,7 @@ button.on{background:var(--pink);color:#4a3a58;box-shadow:0 3px 0 var(--pinkd)}
 .cat{font-size:11px;color:var(--soft);font-weight:700}
 .popin{animation:pop .45s cubic-bezier(.3,1.6,.6,1)}
 .tabs{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
-.tabs button{padding:4px 10px;font-size:12px}
+.tabs button{padding:3px 8px;font-size:11px;box-shadow:0 2px 0 var(--track)}
 </style>
 </head><body><div class="card">
   <div class="label">dopamine gacha</div>
