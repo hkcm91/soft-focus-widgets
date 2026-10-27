@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
+:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
+.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
+button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
+button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
+button.ghost{background:transparent;border:1.5px solid var(--line)}
+button.on{background:var(--pink)}
+</style><title>Dopamine Picker · Soft Focus</title>
+<style>
+.pick{min-height:64px;display:flex;align-items:center;justify-content:center;font-size:clamp(18px,6vw,24px);font-weight:700;padding:10px 18px;border-radius:18px;background:var(--mint);width:100%;transition:background .2s}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tabs button{padding:5px 11px;font-size:12px}
+.spin{background:var(--pink);font-size:15px;padding:10px 22px}
+.cat{font-size:12px;color:var(--soft);font-weight:700;min-height:16px}
+</style>
+</head><body><div class="card">
+  <div class="label">Dopamine menu · pick for me</div>
+  <div class="tabs" id="tabs"></div>
+  <div class="pick" id="p">feeling stuck? spin ✨</div>
+  <div class="cat" id="cat"></div>
+  <button class="spin" id="go">🎲 Spin</button>
+</div>
+<script>
+const M={"🥟 Quick":["Stretch to one song","Step outside for 2 min","Make a fancy drink","Text someone a meme","Dance it out","Splash cold water on your face","Pet an animal"],
+"🍝 Refuel":["Walk + podcast","Draw or doodle","Cook something new","Call a friend","Tidy one tiny corner","Play an instrument","Take a shower with music"],
+"🥗 Side":["Lo-fi playlist","Fidget toy","Body-doubling video","Light a candle","Change your seat","Snack + water nearby"],
+"🍰 Treat":["One episode (timer on!)","15 min of scrolling, timer set","Online window shopping","A cozy snack break"]};
+const colors=["--mint","--sky","--butter","--lav","--pink"];let cat="All";const tabs=document.getElementById("tabs");
+["All",...Object.keys(M)].forEach(k=>{const b=document.createElement("button");b.className="ghost"+(k=="All"?" on":"");b.textContent=k;b.onclick=()=>{cat=k;[...tabs.children].forEach(x=>x.classList.remove("on"));b.classList.add("on")};tabs.appendChild(b)});
+document.getElementById("go").onclick=()=>{const keys=cat=="All"?Object.keys(M):[cat];let n=0;const p=document.getElementById("p"),ct=document.getElementById("cat");
+const iv=setInterval(()=>{const k=keys[Math.floor(Math.random()*keys.length)],it=M[k][Math.floor(Math.random()*M[k].length)];p.textContent=it;ct.textContent=k;p.style.background="var("+colors[n%colors.length]+")";if(++n>14){clearInterval(iv);p.style.background="var(--mint)"}},70)};
+</script>
+</body></html>

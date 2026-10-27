@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet"><script>(function(){var t=new URLSearchParams(location.search).get("theme");if(t)document.documentElement.classList.add(t)})()</script><style>:root{--bg:#fff7fb;--card:#ffffff;--ink:#5b4a6b;--soft:#9a8aa8;--pink:#f7c6d9;--lav:#d9c8f5;--mint:#c8ebd9;--butter:#fbefc0;--sky:#c9e2f7;--accent:#c58fd6;--line:#f1e4ee}
+@media (prefers-color-scheme:dark){:root:not(.light){--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}}
+:root.dark{--bg:#191919;--card:#252126;--ink:#f3e9f7;--soft:#b7a8c2;--line:#3a3340;--pink:#6b3f55;--lav:#4d3f6b;--mint:#2f5546;--butter:#5e5230;--sky:#2f4a63;--accent:#d7a8e6}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Quicksand',ui-rounded,system-ui,sans-serif;display:flex;align-items:center;justify-content:center;padding:12px;overflow:hidden}
+.card{width:100%;height:100%;max-width:520px;background:var(--card);border-radius:24px;border:1.5px solid var(--line);box-shadow:0 6px 24px rgba(197,143,214,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:18px;text-align:center;position:relative}
+.label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
+button{font-family:inherit;font-weight:700;color:var(--ink);background:var(--lav);border:none;border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:transform .15s,filter .15s}
+button:hover{transform:translateY(-1px);filter:brightness(1.04)}button:active{transform:scale(.97)}
+button.ghost{background:transparent;border:1.5px solid var(--line)}
+button.on{background:var(--pink)}
+</style><title>Water · Soft Focus</title>
+<style>
+.cups{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cup{font-size:26px;width:46px;height:46px;border-radius:14px;border:1.5px solid var(--line);background:transparent;padding:0;display:flex;align-items:center;justify-content:center;filter:grayscale(1) opacity(.45)}
+.cup.full{background:var(--sky);filter:none}
+.msg{font-size:13px;font-weight:700;color:var(--soft);min-height:18px}
+</style>
+</head><body><div class="card">
+  <div class="label">Sip tracker</div>
+  <div class="cups" id="cups"></div>
+  <div class="msg" id="m"></div>
+</div>
+<script>
+const key="sf-water-"+new Date().toDateString();let n=0;try{n=+localStorage.getItem(key)||0}catch(e){}
+const msgs=["tap a glass when you sip 💧","nice start!","keep it flowing 🌊","3 down 💙","halfway there!","you're glowing ✨","almost there!","one more 💙","8/8 — hydrated hero 🌸"];
+function draw(){const c=document.getElementById("cups");c.innerHTML="";for(let i=0;i<8;i++){const b=document.createElement("button");b.className="cup"+(i<n?" full":"");b.textContent="🥛";b.onclick=()=>{n=(i+1==n)?i:i+1;try{localStorage.setItem(key,n)}catch(e){}draw()};c.appendChild(b)}document.getElementById("m").textContent=msgs[n]}
+draw();
+</script>
+</body></html>
